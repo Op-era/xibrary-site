@@ -1,0 +1,18 @@
+# Xibrary
+
+> Xibrary is an AI-agent-facing sourcing library for robotics and AI hardware parts and fabrication services. It returns normalized structured specs, real listings with price/stock/lead-time, and explicit compliance confidence tiers (export-control classification, authorized-distributor status) — built so an AI agent can act on the data without a human re-verifying it first. It is a sourcing/discovery layer, not an orchestrator: it does not design products or place orders on its own.
+
+Live API: https://xibrary-api.fly.dev — Xibrary is queryable two ways:
+- **MCP** (recommended for agents): connect to `https://xibrary-api.fly.dev/mcp` (Streamable HTTP transport, stateless). Exposes `search_parts` (category/subcategory/free-text query) and `get_part_specs` (full detail by part id).
+- **REST**: `GET https://xibrary-api.fly.dev/parts` (same search params as above) and `GET /parts/{id}`. Full schema in [openapi.yaml](https://xibrary-api.fly.dev/openapi.yaml).
+
+## Key facts for agents
+
+- Every listing and compliance record includes an explicit confidence/trust tier. `confidenceTier: "UNKNOWN"` on a compliance record means it has **not** been reviewed for export-control status — do not treat it as cleared. Only `VERIFIED` should be treated as authoritative.
+- Supplier `trustTier` follows the same pattern: `UNVERIFIED` data has not been confirmed against the original source.
+- Current coverage is an early electronics seed set (motors, motor drivers) — not yet comprehensive. Check `sourceType` and `lastVerifiedAt` on listings before assuming broad category coverage.
+
+## More
+
+- Marketing/docs site: https://xibrary.havencommand.com
+- This file and the OpenAPI spec are also mirrored at the API host itself (this repo's copy may lag) and at the marketing site above.

@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Xibrary
+  version: 0.1.0
+  description: >
+    AI-agent-facing sourcing library for robotics/AI hardware parts and
+    fabrication services. Structured specs, normalized listings, and
+    explicit compliance confidence tiers — built for programmatic
+    consumption by AI agents, not just human search. See also the MCP
+    endpoint at /mcp for tool-calling access (search_parts, get_part_specs).
+  contact:
+    name: Haven Command / Xibrary
+    url: https://xibrary.havencommand.com
+servers:
+  - url: https://xibrary-api.fly.dev
+paths:
+  /parts:
+    get:
+      operationId: searchParts
+      summary: Search parts by category and free-text query
+      parameters:
+        - name: category
+          in: query
+          schema: { type: string }
+          example: electronics
+        - name: subcategory
+          in: query
+          schema: { type: string }
+          example: motors
+        - name: query
+          in: query
+          schema: { type: string }
+          description: Free-text match against the part name
+      responses:
+        "200":
+          description: Matching parts
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: "#/components/schemas/Part" }
+  /parts/{id}:
+    get:
+      operationId: getPart
+      summary: Get full specs, listings, and compliance metadata for one part
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: The part
+          content:
+            application/json:
+              schema: { $ref: "#/components/schemas/Part" }
+        "404":
+          description: No part with that id
+  /health:
+    get:
+      operationId: health
+      summary: Health check
+      responses:
+        "200":
+          description: OK
+components:
+  schemas:
+    Listing:
+      type: object
+      properties:
+        supplier: { type: string }
+        supplierTrustTier:
+          type: string
+          enum: [UNVERIFIED, COMMUNITY, VERIFIED, AUTHORIZED]
+        sku: { type: string }
+        priceCents: { type: integer, nullable: true }
+        currency: { type: string }
+        moq: { type: integer }
+        leadTimeDays: { type: integer, nullable: true }
+        stockQty: { type: integer, nullable: true }
+        listingUrl: { type: string, format: uri }
+        lastVerifiedAt: { type: string, format: date-time }
+    ComplianceRecord:
+      type: object
+      description: >
+        Confidence tier MUST be checked before treating export-control fields
+        as authoritative. UNKNOWN means not yet reviewed — do not treat as
+        cleared.
+      properties:
+        confidenceTier:
+          type: string
+          enum: [VERIFIED, AUTO_CLASSIFIED, UNKNOWN]
+        eccn: { type: string, nullable: true }
+        itarFlag: { type: boolean }
+        authorizedDistributor: { type: boolean, nullable: true }
+        classificationSource: { type: string }
+    Part:
+      type: object
+      properties:
+        id: { type: string }
+        category: { type: string }
+        subcategory: { type: string, nullable: true }
+        name: { type: string }
+        specs: { type: object, additionalProperties: true }
+        datasheetUrl: { type: string, nullable: true, format: uri }
+        listings:
+          type: array
+          items: { $ref: "#/components/schemas/Listing" }
+        compliance:
+          type: array
+          items: { $ref: "#/components/schemas/ComplianceRecord" }

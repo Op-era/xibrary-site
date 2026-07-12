@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Xibrary — The Sourcing Index AI Agents Use to Find Robotics & AI Hardware Parts</title>
+<meta name="description" content="Xibrary is a structured, compliance-tagged index of robotics and AI hardware parts and fabrication services, built for AI agents to query directly via MCP or REST — not a search engine for humans, the discovery layer agents call instead." />
+<link rel="canonical" href="https://xibrary.havencommand.com/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Xibrary — Parts Sourcing for AI Agents" />
+<meta property="og:description" content="A structured, compliance-tagged index of robotics and AI hardware parts and fabrication services, queryable by AI agents via MCP or REST." />
+<meta property="og:url" content="https://xibrary.havencommand.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Xibrary — Parts Sourcing for AI Agents" />
+<meta name="twitter:description" content="A structured, compliance-tagged index of robotics and AI hardware parts and fabrication services, queryable by AI agents via MCP or REST." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Xibrary",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Any",
+  "url": "https://xibrary.havencommand.com/",
+  "description": "A structured, compliance-tagged index of robotics and AI hardware parts and fabrication services, built for AI agents to query directly via MCP or REST.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Haven Command",
+    "url": "https://havencommand.com"
+  }
+}
+</script>
+
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; max-width: 780px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+  h1 { font-size: 2rem; margin-bottom: 0.25rem; }
+  .tagline { font-size: 1.15rem; opacity: 0.8; margin-top: 0; }
+  h2 { margin-top: 3rem; font-size: 1.35rem; }
+  code, pre { background: rgba(127,127,127,0.15); border-radius: 6px; }
+  code { padding: 0.15em 0.4em; font-size: 0.92em; }
+  pre { padding: 1rem; overflow-x: auto; }
+  pre code { background: none; padding: 0; }
+  .badge { display: inline-block; font-size: 0.8rem; padding: 0.2em 0.6em; border-radius: 999px; background: rgba(127,127,127,0.15); margin-right: 0.4em; }
+  footer { margin-top: 4rem; opacity: 0.7; font-size: 0.9rem; }
+  a { color: inherit; }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="badge">Haven Command</span><span class="badge">MCP + REST</span>
+  <h1>Xibrary</h1>
+  <p class="tagline">The sourcing index AI agents use to find robotics and AI hardware parts — legally, with compliance metadata attached, not scraped from a webpage meant for a human.</p>
+</header>
+
+<section>
+  <h2>What it is</h2>
+  <p>When an AI agent is asked to build something physical — a robot, a sensor rig, an embedded project — it eventually needs real parts: motors, drivers, sensors, fabrication services. Today that means the agent either hallucinates a plausible-sounding part, or a human has to go find one manually. Xibrary is the layer in between: a structured, queryable index the agent calls directly, the same way it might call any other tool.</p>
+  <p>It is a sourcing and discovery layer only. Xibrary does not design products, and it does not place orders on its own — it answers "where do I get this part, legally, at what price, how fast" with data an agent can act on without a human re-verifying it first.</p>
+</section>
+
+<section>
+  <h2>Why every result carries a confidence tier</h2>
+  <p>Every listing and every compliance record in Xibrary is tagged with an explicit confidence tier — <code>VERIFIED</code>, <code>AUTO_CLASSIFIED</code>, or <code>UNKNOWN</code>. An agent (or a person) should never treat <code>UNKNOWN</code> export-control or pricing data as authoritative. This is the thing that makes Xibrary's data safe to act on autonomously, instead of just another source that needs a human to double-check it.</p>
+</section>
+
+<section>
+  <h2>For AI agents / developers</h2>
+  <p>Connect via MCP (recommended) or plain REST:</p>
+  <pre><code>MCP endpoint:  https://xibrary-api.fly.dev/mcp   (Streamable HTTP, stateless)
+Tools:         search_parts, get_part_specs
+
+REST:          GET https://xibrary-api.fly.dev/parts?category=electronics&subcategory=motors
+               GET https://xibrary-api.fly.dev/parts/{id}</code></pre>
+  <p>
+    <a href="https://xibrary-api.fly.dev/openapi.yaml">OpenAPI spec</a> ·
+    <a href="https://xibrary-api.fly.dev/llms.txt">llms.txt</a> ·
+    <a href="/llms.txt">llms.txt (mirror)</a>
+  </p>
+</section>
+
+<section>
+  <h2>For manufacturers and suppliers</h2>
+  <p>As AI agents increasingly do the choosing instead of a person browsing search results, being represented in the structured data those agents query is what determines whether they find you at all. Xibrary indexes public catalog data, structured and attributed back to you, at no cost during this early build phase. If you received an email about this and want to see what a listing would look like, or want to be included, reply to that email — we're doing this with suppliers' knowledge and input, not without it.</p>
+</section>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Early build — electronics category (motors, motor drivers) is seeded first; broader coverage is in progress.</p>
+</footer>
+
+</body>
+</html>
