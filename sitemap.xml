@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
-  <url><loc>https://xibrary.havencommand.com/</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/why-ai-agents-will-do-the-shopping.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/haven-command-philosophy.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/game-design-lessons-for-ai-agents.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/model-context-protocol-explained.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/agentic-commerce-is-coming.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/how-we-use-ai-to-build-faster.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/compliance-has-to-become-machine-readable.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/from-npcs-to-agents.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/future-of-robotics-hardware-catching-up.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/lessons-from-shipping-multiple-products.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/ai-search-is-not-google-search.html</loc></url>
-  <url><loc>https://xibrary.havencommand.com/blog/what-were-building-next.html</loc></url>
+  <url><loc>https://xibrary.havencommand.com/</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/</loc><lastmod>2026-07-12</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/what-were-building-next.html</loc><lastmod>2026-07-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/ai-search-is-not-google-search.html</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/lessons-from-shipping-multiple-products.html</loc><lastmod>2026-06-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/future-of-robotics-hardware-catching-up.html</loc><lastmod>2026-05-31</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/from-npcs-to-agents.html</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/compliance-has-to-become-machine-readable.html</loc><lastmod>2026-05-03</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/how-we-use-ai-to-build-faster.html</loc><lastmod>2026-04-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/agentic-commerce-is-coming.html</loc><lastmod>2026-04-05</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/model-context-protocol-explained.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/game-design-lessons-for-ai-agents.html</loc><lastmod>2026-03-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/haven-command-philosophy.html</loc><lastmod>2026-02-22</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://xibrary.havencommand.com/blog/why-ai-agents-will-do-the-shopping.html</loc><lastmod>2026-02-08</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
