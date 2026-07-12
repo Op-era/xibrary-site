@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI-Ready Manufacturer Guidelines — Xibrary</title>
+<meta name="description" content="Practical, standards-based guidelines for making a manufacturer or distributor catalog readable by AI agents — structured product data, machine-readable summaries, and clear crawling policy, built on existing open standards, not a proprietary format." />
+<link rel="canonical" href="https://xibrary.havencommand.com/guidelines/" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI-Ready Manufacturer Guidelines" />
+<meta property="og:description" content="Practical, standards-based guidelines for making a manufacturer or distributor catalog readable by AI agents." />
+<meta property="og:url" content="https://xibrary.havencommand.com/guidelines/" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="/guidelines/">Guidelines</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<header>
+  <h1>AI-Ready Manufacturer Guidelines</h1>
+  <p class="tagline">How to make your catalog readable by AI agents — built on existing open standards, not a proprietary Xibrary format. Useful whether or not you ever work with us directly.</p>
+</header>
+
+<section>
+  <h2>Why this matters now</h2>
+  <p>AI agents are increasingly the ones researching and sourcing parts on a person's behalf — see <a href="/blog/why-ai-agents-will-do-the-shopping.html">why AI agents will do the shopping</a>. An agent can't reliably read a page designed for a human — marketing copy, inconsistent formatting, specs buried in a PDF datasheet — the way a person can. The gap between "a human could find this" and "an agent can act on this" is closing fast, and catalogs that stay purely human-readable risk becoming invisible to an entire, growing category of buyers.</p>
+</section>
+
+<section>
+  <h2>The guidelines</h2>
+
+  <h3>1. Mark up product data with schema.org</h3>
+  <p>The single highest-leverage change: add <a href="https://schema.org/Product">schema.org <code>Product</code></a> structured data (JSON-LD, in the page's <code>&lt;head&gt;</code> or inline) to every product page — name, SKU, price, availability, and <code>additionalProperty</code> for specs like voltage, torque, or dimensions. This is not a new or proprietary requirement; it's the same markup Google has used for rich search results for over a decade, and any AI system doing web-based retrieval already knows how to parse it.</p>
+
+  <h3>2. Publish a machine-readable catalog feed</h3>
+  <p>A CSV, JSON, or XML export of your catalog — even a simple one, updated on whatever schedule is practical — is far more reliable for an agent to consume than parsing rendered HTML. This isn't a novel ask: electronics distributor aggregators already do exactly this in practice — <a href="https://support.nexar.com/support/solutions/articles/101000470421-working-with-octopart-s-supply-data">Nexar (Octopart's parent) ingests manufacturer and distributor part data via structured CSV feeds</a> as standard practice. Use GS1's <a href="https://www.gs1.org/standards/id-keys/gtin">GTIN</a> for product identifiers where applicable — it's the existing global standard for exactly this, not something specific to us.</p>
+
+  <h3>3. Publish an <code>llms.txt</code></h3>
+  <p>A short, plain-text summary of what your site offers and where the important pages live, at <code>/llms.txt</code> — the emerging convention for orienting an AI system quickly, the same way <code>robots.txt</code> orients a crawler. Ours is at <a href="/llms.txt">xibrary.havencommand.com/llms.txt</a> as a working example.</p>
+
+  <h3>4. Say what your crawling policy actually is, in <code>robots.txt</code></h3>
+  <p>A lot of ambiguity for both AI systems and honest indexers comes from a <code>robots.txt</code> that's silent or overly broad. If you're open to AI/research crawlers indexing product data but not to competitors scraping pricing in bulk, say so explicitly with a scoped <code>User-agent</code> block, rather than leaving it to guesswork or a blanket disallow that blocks everyone equally.</p>
+
+  <h3>5. Keep compliance and export-control status attached to the part, not buried in a PDF</h3>
+  <p>Where it applies, export control classification (ECCN) and authorized-distributor status are exactly the kind of information an agent needs attached directly to structured data to act safely — see <a href="/blog/compliance-has-to-become-machine-readable.html">why compliance has to become machine-readable</a>. A datasheet PDF a human might read once isn't a reliable channel for this if the goal is letting software use it correctly.</p>
+</section>
+
+<section>
+  <h2>What we do with this</h2>
+  <p>If your site already follows these guidelines, <a href="/">Xibrary</a> can index your catalog cleanly with attribution back to you, at no cost during our current build phase — see <a href="/">the Xibrary homepage</a> for what that looks like. If it doesn't yet, adopting them is worth doing on its own merits: they're existing, widely-used standards that make a catalog more useful to any AI system, not just ours.</p>
+</section>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to <a href="/">Xibrary home</a> or the <a href="/blog/">blog</a>.</p>
+</footer>
+
+</body>
+</html>
