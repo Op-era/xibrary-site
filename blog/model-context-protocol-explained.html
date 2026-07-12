@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Model Context Protocol, Explained: Why Tools Are the New APIs — Xibrary Blog</title>
+<meta name="description" content="A plain-language explainer on the Model Context Protocol (MCP) — why it exists, how it differs from a REST API, and why Xibrary is built MCP-first for AI agents sourcing robotics and AI hardware parts." />
+<link rel="canonical" href="https://xibrary.havencommand.com/blog/model-context-protocol-explained.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Model Context Protocol, Explained" />
+<meta property="og:description" content="Why the Model Context Protocol exists, how it differs from a REST API, and why tools are the new APIs." />
+<meta property="og:url" content="https://xibrary.havencommand.com/blog/model-context-protocol-explained.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Model Context Protocol, Explained" />
+<meta name="twitter:description" content="Why the Model Context Protocol exists and why tools are the new APIs." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The Model Context Protocol, Explained: Why Tools Are the New APIs",
+  "datePublished": "2026-03-22",
+  "author": {"@type": "Person", "name": "Shane Foster"},
+  "publisher": {"@type": "Organization", "name": "Haven Command", "url": "https://havencommand.com"},
+  "url": "https://xibrary.havencommand.com/blog/model-context-protocol-explained.html"
+}
+</script>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<article>
+<h1>The Model Context Protocol, Explained: Why Tools Are the New APIs</h1>
+<p class="post-meta">Posted <time datetime="2026-03-22">March 22, 2026</time> · Haven Command</p>
+
+<p>If you've followed AI agent development at all, you've run into the acronym MCP — the Model Context Protocol. It's become the default way AI agents connect to external tools and data sources, and it's the protocol <a href="/">Xibrary</a> is built on. But the name doesn't explain itself, so here's the plain version: what MCP actually is, and why it matters more than it sounds like it should.</p>
+
+<h2>The problem MCP solves</h2>
+
+<p>Before a standard like MCP existed, every AI application that wanted to connect to an external tool — a database, a file system, a search index — had to build a custom integration for it. Multiply that by every tool and every AI application, and you get an N×M integration problem: every agent needs custom glue code for every tool it wants to use. That doesn't scale, and it's exactly the problem USB solved for hardware two decades earlier — one standard connector instead of a different cable for every device.</p>
+
+<p>MCP is that standard connector for AI agents. It defines a common way for a "server" (a tool, like Xibrary) to describe what it can do, and for a "client" (an AI agent, like Claude) to discover and call those capabilities, without either side needing custom code for the other. Build one MCP server, and any MCP-compatible agent can use it — that's the whole point.</p>
+
+<p>Anthropic's original announcement described it plainly: MCP is "a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments" — see <a href="https://www.anthropic.com/news/model-context-protocol">Anthropic's introduction to the Model Context Protocol</a>. It's worth noting this hasn't stayed an Anthropic-only standard — <a href="https://cloud.google.com/blog/products/ai-machine-learning/announcing-official-mcp-support-for-google-services">Google Cloud has since announced official MCP support for its own services</a>, which is exactly the cross-vendor adoption a standard like this needs to actually solve the integration problem instead of just relocating it.</p>
+
+<h2>How it's different from a REST API</h2>
+
+<p>A REST API is designed for a developer to read documentation and write code against it. An MCP server is designed for an AI agent to read a tool's name and description at runtime and decide, on its own, whether and how to call it. That's a real design constraint, not a technicality — it means the description text of an MCP tool isn't just documentation, it's the interface the agent reasons over to decide what to do. Write a vague tool description and a capable agent will still misuse or ignore your tool, the same way a person will bounce off a confusing UI.</p>
+
+<p>This is part of why we think about MCP tool design the way we think about game design — good affordances, honest feedback, no ambiguity about what a thing does. We wrote more about that specific parallel in <a href="/blog/game-design-lessons-for-ai-agents.html">what game design teaches you about designing for AI agents</a>.</p>
+
+<h2>Why Xibrary is MCP-first</h2>
+
+<p>Xibrary exposes two tools over MCP — <code>search_parts</code> and <code>get_part_specs</code> — alongside a plain REST API for anything that isn't yet MCP-native. We built MCP-first on purpose: the whole premise of Xibrary is that AI agents, not people, are the primary users making the sourcing decision, and MCP is the protocol built specifically for that relationship. It's a small, concrete example of a much bigger shift we think is underway — <a href="/blog/agentic-commerce-is-coming.html">agentic commerce</a>, where more and more purchasing and sourcing decisions get made by an agent acting on a human's behalf rather than the human doing it directly.</p>
+
+<h2>Tools are the new APIs</h2>
+
+<p>The bigger claim underneath all of this: as AI agents become the primary consumers of more software, "does this have a good MCP tool" starts to matter as much as "does this have a good API" did in the last decade of software. That's not a small shift for anyone building developer infrastructure — it's a new audience with different needs, different failure modes, and a different definition of what "good documentation" even means. We built Xibrary as a bet that taking that audience seriously, early, is worth it.</p>
+
+</article>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
+</footer>
+
+</body>
+</html>

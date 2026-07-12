@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How We Use AI to Build Faster at Haven Command — Xibrary Blog</title>
+<meta name="description" content="A look at the actual AI tools and workflows Haven Command uses day-to-day — agentic coding, automated research, and how a small studio ships across games, AI products, and infrastructure like Xibrary." />
+<link rel="canonical" href="https://xibrary.havencommand.com/blog/how-we-use-ai-to-build-faster.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How We Use AI to Build Faster at Haven Command" />
+<meta property="og:description" content="The actual AI tools and workflows Haven Command uses day-to-day to ship faster." />
+<meta property="og:url" content="https://xibrary.havencommand.com/blog/how-we-use-ai-to-build-faster.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="How We Use AI to Build Faster at Haven Command" />
+<meta name="twitter:description" content="The actual AI tools and workflows Haven Command uses day-to-day." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How We Use AI to Build Faster at Haven Command",
+  "datePublished": "2026-04-19",
+  "author": {"@type": "Person", "name": "Shane Foster"},
+  "publisher": {"@type": "Organization", "name": "Haven Command", "url": "https://havencommand.com"},
+  "url": "https://xibrary.havencommand.com/blog/how-we-use-ai-to-build-faster.html"
+}
+</script>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<article>
+<h1>How We Use AI to Build Faster at Haven Command</h1>
+<p class="post-meta">Posted <time datetime="2026-04-19">April 19, 2026</time> · Haven Command</p>
+
+<p>People ask how a small studio like <a href="https://havencommand.com">Haven Command</a> ends up building across so many different products at once — games, AI-powered tools, and now sourcing infrastructure like <a href="/">Xibrary</a>. The honest answer isn't a secret framework or a hiring strategy. It's that AI agentic coding tools have genuinely changed what a small team can do in a day, and we've built our whole workflow around that.</p>
+
+<h2>Agentic coding, not autocomplete</h2>
+
+<p>There's a real difference between AI-assisted coding — autocomplete that finishes your line — and agentic coding, where an AI agent can take a goal, plan a multi-step implementation, write and run code, read the errors, and iterate, largely on its own. We build with the second kind. It changes the unit of work: instead of writing every line, you're describing outcomes and reviewing results, closer to directing than typing.</p>
+
+<p>That shift matters most for exactly the kind of work that used to be the bottleneck for a small team — scaffolding a new service, wiring up a database schema, writing the boilerplate around a third-party API, standing up a deployment pipeline. None of that work is where the real product thinking happens, and agentic tools compress it dramatically, which is what actually lets a small studio ship across this many surfaces at once.</p>
+
+<h2>Where the human judgment still has to live</h2>
+
+<p>The parts that don't compress are the parts that shouldn't: deciding what's actually worth building, catching a compliance or legal risk before it ships, deciding when an AI-generated approach is technically clever but wrong for the product. Xibrary itself is a good example of where that judgment mattered — the interesting design decisions weren't "how do we call an API," they were things like deciding that every compliance record needs an explicit confidence tier instead of a false sense of certainty, or drawing the line between scraping a supplier's contact info and scraping their catalog data without permission. An agent can help implement a decision like that quickly. It shouldn't be the one making it.</p>
+
+<h2>Building the same way you'd design a game</h2>
+
+<p>There's a pattern here that connects back to something we think about constantly: <a href="/blog/game-design-lessons-for-ai-agents.html">good game design and good agent design are the same discipline</a> — clear systems, honest feedback, and a human designer setting the rules an intelligent actor operates within. Working with agentic coding tools day to day is practice at exactly that skill, just pointed inward at your own build process instead of outward at a product.</p>
+
+<h2>Why this matters for what Xibrary is trying to do</h2>
+
+<p>We didn't build Xibrary in spite of using AI agents to help build it — we built it because using AI agents daily made the sourcing gap for hardware impossible to ignore. If you want that fuller story, we wrote about it in <a href="/blog/why-ai-agents-will-do-the-shopping.html">why AI agents will do the shopping</a>. Using the tools is what surfaced the problem worth solving.</p>
+
+</article>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Search Is Not Google Search: An Introduction to AEO and GEO — Xibrary Blog</title>
+<meta name="description" content="Answer Engine Optimization (AEO) and Generative Engine Optimization (GEO) are the emerging disciplines of being found by AI systems instead of ranking on Google. Why that distinction matters and how Xibrary was built around it." />
+<link rel="canonical" href="https://xibrary.havencommand.com/blog/ai-search-is-not-google-search.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="AI Search Is Not Google Search: An Introduction to AEO and GEO" />
+<meta property="og:description" content="Answer Engine Optimization and Generative Engine Optimization, explained — and why they're not the same as SEO." />
+<meta property="og:url" content="https://xibrary.havencommand.com/blog/ai-search-is-not-google-search.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI Search Is Not Google Search" />
+<meta name="twitter:description" content="An introduction to AEO and GEO, and why they're not the same as SEO." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Search Is Not Google Search: An Introduction to AEO and GEO",
+  "datePublished": "2026-06-28",
+  "author": {"@type": "Person", "name": "Shane Foster"},
+  "publisher": {"@type": "Organization", "name": "Haven Command", "url": "https://havencommand.com"},
+  "url": "https://xibrary.havencommand.com/blog/ai-search-is-not-google-search.html"
+}
+</script>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<article>
+<h1>AI Search Is Not Google Search: An Introduction to AEO and GEO</h1>
+<p class="post-meta">Posted <time datetime="2026-06-28">June 28, 2026</time> · Haven Command</p>
+
+<p>Search engine optimization spent two decades optimizing for one thing: a ranked list of blue links, read by a human who clicks the one that looks most relevant. That model is no longer the only one that matters. Two newer disciplines — AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) — are about being found and cited by AI systems that answer questions directly, or that act on a user's behalf, instead of handing back a list of links at all. <a href="/">Xibrary</a> was designed around this distinction from day one, not bolted onto an existing SEO strategy afterward.</p>
+
+<h2>Three different audiences, three different disciplines</h2>
+
+<p><strong>SEO</strong> optimizes for ranking in a traditional search results page — keywords, backlinks, domain authority, all read (eventually) by a human clicking a link.</p>
+
+<p><strong>AEO / GEO</strong> optimizes for being the source an AI system cites or summarizes when it answers a question directly — tools like Perplexity or an AI browser's search feature. The content still matters, but structure, clarity, and being unambiguously quotable matter more than keyword density ever did. The term comes from actual academic research, not marketing — <a href="https://arxiv.org/abs/2311.09735">"GEO: Generative Engine Optimization" (Aggarwal et al., KDD 2024)</a> was the paper that coined and formalized it, and found that applying GEO techniques could boost a source's visibility in generative-engine responses by as much as 40%. That's a measured effect, not a vague claim, and it's the reason we treat this as a real discipline rather than repackaged SEO advice.</p>
+
+<p><strong>Agent discovery</strong> — the newest and least understood of the three — is about being found and correctly used by an AI agent that's not searching the web at all, but calling tools directly through a protocol like MCP. This isn't about ranking or being cited. It's about registry listings, tool descriptions an LLM can parse unambiguously, and machine-readable specs like <code>llms.txt</code> and OpenAPI. We wrote about the protocol side of this in <a href="/blog/model-context-protocol-explained.html">the Model Context Protocol, explained</a>.</p>
+
+<h2>Why Xibrary treats all three as one connected effort, not three separate campaigns</h2>
+
+<p>A well-documented, well-linked, MCP-registered product is legible to all three audiences from the same underlying investment: good backlinks and content help a human find Xibrary via Google and help an AI answer engine cite it accurately, while the same clarity of writing that makes content quotable also makes an MCP tool description unambiguous to an agent deciding whether to call it. The build order that gets the most leverage from one investment is publishing clean machine-readable specs first — OpenAPI, <code>llms.txt</code>, MCP manifest — since those serve all three audiences simultaneously, before spending effort on registry submissions or backlink-building campaigns that only serve one.</p>
+
+<h2>What this means if you're building for this future too</h2>
+
+<p>If your product's actual future users increasingly include AI agents and AI answer engines, not just humans typing into a search box, then treating AEO/GEO/agent-discovery as an afterthought bolted onto traditional SEO is a mistake we'd encourage you not to repeat. Build the machine-readable layer as a first-class deliverable, not a nice-to-have — it's cheaper to do it from the start than to retrofit it once you realize your actual audience was never only human in the first place.</p>
+
+</article>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
+</footer>
+
+</body>
+</html>

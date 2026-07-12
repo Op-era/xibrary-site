@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>What Game Design Teaches You About Designing for AI Agents — Xibrary Blog</title>
+<meta name="description" content="Game design and AI agent design are both about systems, rules, feedback loops, and the agents that act inside them. Here's what years of game design teach you about building tools for AI agents." />
+<link rel="canonical" href="https://xibrary.havencommand.com/blog/game-design-lessons-for-ai-agents.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="What Game Design Teaches You About Designing for AI Agents" />
+<meta property="og:description" content="Game design and AI agent design are both about systems, rules, and feedback loops." />
+<meta property="og:url" content="https://xibrary.havencommand.com/blog/game-design-lessons-for-ai-agents.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="What Game Design Teaches You About Designing for AI Agents" />
+<meta name="twitter:description" content="Game design and AI agent design are both about systems, rules, and feedback loops." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What Game Design Teaches You About Designing for AI Agents",
+  "datePublished": "2026-03-08",
+  "author": {"@type": "Person", "name": "Shane Foster"},
+  "publisher": {"@type": "Organization", "name": "Haven Command", "url": "https://havencommand.com"},
+  "url": "https://xibrary.havencommand.com/blog/game-design-lessons-for-ai-agents.html"
+}
+</script>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<article>
+<h1>What Game Design Teaches You About Designing for AI Agents</h1>
+<p class="post-meta">Posted <time datetime="2026-03-08">March 8, 2026</time> · Haven Command</p>
+
+<p>Game design and AI agent design look unrelated until you notice they're solving the same underlying problem: how do you build a system with clear rules, honest feedback, and an actor — a player, or now an AI agent — that has to be able to understand its options well enough to act competently inside it? At <a href="https://havencommand.com">Haven Command</a> we build both games and AI-facing tools, and the crossover between the two disciplines has shaped how we think about agent-facing products like <a href="/">Xibrary</a> more than anything from traditional API design.</p>
+
+<h2>Clear affordances beat clever ones</h2>
+
+<p>Good game design has a rule that gets hammered into every designer early: don't make the player guess what's interactive. A door that looks like a door should open. A glowing object should matter. Ambiguity isn't mysterious, it's friction, and friction in a game is where players quietly bounce off and never come back.</p>
+
+<p>The exact same rule applies to designing a tool for an AI agent, almost word for word. An MCP tool with a vague name and a vague description is a door that doesn't look like a door — the agent won't reliably know to open it, no matter how good the implementation behind it is. When we built Xibrary's <code>search_parts</code> and <code>get_part_specs</code> tools, we wrote the descriptions the way we'd write an in-game tooltip: specific, unambiguous, telling the agent exactly what it would get and when to reach for it. That's a game design instinct wearing a different hat.</p>
+
+<h2>Feedback loops are everything</h2>
+
+<p>A game without feedback is just a spreadsheet. Every meaningful action needs a response the player can read and learn from — did that work, did it not, what should I try next. AI agents need the identical thing. A tool that fails silently, or returns an ambiguous result, teaches the agent nothing and often causes it to either give up or hallucinate an answer to fill the gap. That's part of why every result Xibrary returns carries an explicit confidence tier instead of a flat "here's your data" — it's feedback the agent can actually reason about, not just a payload.</p>
+
+<h2>NPCs were the first AI agents we ever designed for</h2>
+
+<p>Long before "AI agent" meant an LLM calling tools, game designers were building agents in the loosest sense — NPCs with goals, constraints, and decision trees, operating inside a system a human designed for them. A lot of what's now called "agentic design" is a rediscovery of lessons game AI figured out decades ago. We go much deeper on that specific parallel in <a href="/blog/from-npcs-to-agents.html">from NPCs to agents</a>.</p>
+
+<h2>Systems thinking is the actual transferable skill</h2>
+
+<p>What ties all of this together isn't a specific technique, it's a mindset: think in systems, not features. A feature is a thing you add. A system is a set of rules an agent — human or AI — operates within, and the quality of that system is measured by how well an intelligent actor can understand and act inside it without a manual. That mindset is exactly what led us to build Xibrary the way we did, and it's the same mindset behind every game Haven Command ships. If you want to see how that plays out in our actual day-to-day build process, we wrote about it in <a href="/blog/how-we-use-ai-to-build-faster.html">how we use AI to build faster</a>.</p>
+
+</article>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
+</footer>
+
+</body>
+</html>

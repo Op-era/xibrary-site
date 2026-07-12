@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>From NPCs to Agents: What Game AI and Modern AI Agents Have in Common — Xibrary Blog</title>
+<meta name="description" content="Long before LLM agents, game designers were building goal-driven NPCs operating inside designed systems. What that decades-old discipline teaches modern AI agent design." />
+<link rel="canonical" href="https://xibrary.havencommand.com/blog/from-npcs-to-agents.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="From NPCs to Agents: What Game AI and Modern AI Agents Have in Common" />
+<meta property="og:description" content="What decades of game NPC design teaches modern AI agent design." />
+<meta property="og:url" content="https://xibrary.havencommand.com/blog/from-npcs-to-agents.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="From NPCs to Agents" />
+<meta name="twitter:description" content="What decades of game NPC design teaches modern AI agent design." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "From NPCs to Agents: What Game AI and Modern AI Agents Have in Common",
+  "datePublished": "2026-05-17",
+  "author": {"@type": "Person", "name": "Shane Foster"},
+  "publisher": {"@type": "Organization", "name": "Haven Command", "url": "https://havencommand.com"},
+  "url": "https://xibrary.havencommand.com/blog/from-npcs-to-agents.html"
+}
+</script>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<article>
+<h1>From NPCs to Agents: What Game AI and Modern AI Agents Have in Common</h1>
+<p class="post-meta">Posted <time datetime="2026-05-17">May 17, 2026</time> · Haven Command</p>
+
+<p>"AI agent" feels like a brand-new term, but game designers have been building agents — in the literal, technical sense — for decades. An NPC with a patrol route, a threat-response behavior tree, and a set of goals it pursues within the rules of a game world is an agent. It doesn't reason with language, but it perceives state, evaluates options, and acts toward a goal inside a system a designer built for it. That's the same shape of problem an LLM-based AI agent solves, just with a vastly more general reasoning engine underneath.</p>
+
+<h2>Behavior trees and tool calling aren't as different as they sound</h2>
+
+<p>A classic game AI behavior tree is a structured way of asking: given the current state of the world, what's the best available action, and what are its preconditions? An AI agent deciding whether to call a tool like Xibrary's <code>search_parts</code> is answering a strikingly similar question — given what I'm trying to build and what I know so far, is this the right action, and do I have what I need to take it? Game AI made that decision process explicit and inspectable, decades before "chain of thought" was a phrase anyone used for language models. There's real, transferable design wisdom in how that older discipline handled ambiguity, failure states, and fallback behavior.</p>
+
+<h2>Designed constraints make agents better, not worse</h2>
+
+<p>A common instinct is to think an agent — game NPC or AI — performs best with maximum freedom. In practice the opposite is usually true. An NPC with an unbounded goal system tends to behave unpredictably and often badly; a tightly scoped one, with clear rules about what it can and can't do, behaves coherently and is far easier to debug when it doesn't. We apply the identical instinct to how <a href="/">Xibrary</a> is scoped: it deliberately does not try to be a general-purpose product-design AI. It answers one question well — where do I source this part, legally, with what confidence — instead of trying to do everything an agent might want. That constraint is a feature, not a limitation, the same way a well-designed game system's rules are what make it playable rather than chaotic.</p>
+
+<h2>The feedback loop is the whole game, literally</h2>
+
+<p>Every experienced game designer learns the same lesson eventually: the feedback loop is the game. An agent — player or NPC — that can't tell whether its last action succeeded, and why, can't improve, can't plan, and eventually behaves erratically. That exact principle shaped one of Xibrary's core design decisions: every result carries an explicit confidence tier instead of a flat, undifferentiated answer, because an agent that can't tell verified data from unverified data is playing the sourcing equivalent of a game with no feedback at all. We wrote more broadly about this crossover in <a href="/blog/game-design-lessons-for-ai-agents.html">what game design teaches you about designing for AI agents</a>.</p>
+
+<h2>Why this matters beyond nostalgia</h2>
+
+<p>This isn't a "game design is secretly relevant" pitch for its own sake. It's a real claim about where good agent-design instincts actually come from: decades of practice building systems for non-human actors to operate inside of, with real players immediately exposing every flaw in the design. <a href="https://havencommand.com">Haven Command</a> builds games and AI-facing infrastructure side by side for exactly that reason — they sharpen the same skill.</p>
+
+</article>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
+</footer>
+
+</body>
+</html>
