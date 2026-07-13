@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>We Checked Whether Manufacturer Sites Are Actually AI-Ready — Xibrary Blog</title>
+<meta name="description" content="We pulled real product pages from SparkFun, Pololu, Prusa, McMaster-Carr, and Digi-Key and checked them against our own AI-Ready Manufacturer Guidelines. Here's what we actually found." />
+<link rel="canonical" href="https://xibrary.havencommand.com/blog/we-checked-if-manufacturer-sites-are-ai-ready.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="We Checked Whether Manufacturer Sites Are Actually AI-Ready" />
+<meta property="og:description" content="We pulled real product pages from SparkFun, Pololu, Prusa, McMaster-Carr, and Digi-Key and checked them against our own AI-Ready guidelines." />
+<meta property="og:url" content="https://xibrary.havencommand.com/blog/we-checked-if-manufacturer-sites-are-ai-ready.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="We Checked Whether Manufacturer Sites Are Actually AI-Ready" />
+<meta name="twitter:description" content="Real product pages from 5 companies, checked against our AI-Ready guidelines." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "We Checked Whether Manufacturer Sites Are Actually AI-Ready",
+  "datePublished": "2026-07-13",
+  "author": {"@type": "Person", "name": "Shane Foster"},
+  "publisher": {"@type": "Organization", "name": "Haven Command", "url": "https://havencommand.com"},
+  "url": "https://xibrary.havencommand.com/blog/we-checked-if-manufacturer-sites-are-ai-ready.html"
+}
+</script>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<nav class="sitenav">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="/guidelines/">Guidelines</a>
+  <a href="https://havencommand.com">Haven Command</a>
+</nav>
+
+<article>
+<h1>We Checked Whether Manufacturer Sites Are Actually AI-Ready</h1>
+<p class="post-meta">Posted <time datetime="2026-07-13">July 13, 2026</time> · Haven Command</p>
+
+<p>We recently published <a href="/guidelines/">AI-Ready Manufacturer Guidelines</a> — practical, standards-based recommendations for making a catalog readable by AI agents instead of just humans. Guidelines are easy to write in the abstract. So instead of leaving it there, we pulled five real product pages from real companies and checked them against our own list. Here's exactly what we found.</p>
+
+<h2>The method</h2>
+<p>We fetched the raw HTML of five product pages — no rendering, no login, just what a plain request actually returns, which is close to what a lot of AI retrieval looks like in practice — and checked each for <a href="https://schema.org/Product">schema.org <code>Product</code></a> structured data, whether that data included real engineering specs (not just name/price/SKU), and whether the page was even reachable at all.</p>
+
+<table style="width:100%;border-collapse:collapse;margin:1.5em 0;">
+<thead><tr style="text-align:left;border-bottom:2px solid rgba(127,127,127,0.4);"><th style="padding:0.4em;">Site</th><th style="padding:0.4em;">Product JSON-LD?</th><th style="padding:0.4em;">Real structured specs?</th><th style="padding:0.4em;">Notes</th></tr></thead>
+<tbody>
+<tr style="border-bottom:1px solid rgba(127,127,127,0.25);"><td style="padding:0.4em;">SparkFun (RedBoard Qwiic)</td><td style="padding:0.4em;">Yes</td><td style="padding:0.4em;">No</td><td style="padding:0.4em;">Name, price, SKU, image only — zero specs in the markup.</td></tr>
+<tr style="border-bottom:1px solid rgba(127,127,127,0.25);"><td style="padding:0.4em;">Pololu (Micro Metal Gearmotor)</td><td style="padding:0.4em;">Yes</td><td style="padding:0.4em;">Sort of, but broken</td><td style="padding:0.4em;">Real numbers present, dumped as garbled text inside <code>description</code>.</td></tr>
+<tr style="border-bottom:1px solid rgba(127,127,127,0.25);"><td style="padding:0.4em;">Prusa (MK4S printer)</td><td style="padding:0.4em;">No</td><td style="padding:0.4em;">No</td><td style="padding:0.4em;">Zero structured data on a flagship product from a major manufacturer.</td></tr>
+<tr style="border-bottom:1px solid rgba(127,127,127,0.25);"><td style="padding:0.4em;">McMaster-Carr (bearings)</td><td style="padding:0.4em;">No</td><td style="padding:0.4em;">No</td><td style="padding:0.4em;">Couldn't even reach a stable individual product URL — real pages sit behind JS interaction.</td></tr>
+<tr><td style="padding:0.4em;">Digi-Key (resistor)</td><td style="padding:0.4em;">—</td><td style="padding:0.4em;">—</td><td style="padding:0.4em;">Blocked the request outright (HTTP 403) before any check could run.</td></tr>
+</tbody>
+</table>
+
+<h2>The most interesting result wasn't the sites with nothing — it was Pololu</h2>
+<p>SparkFun and Prusa having incomplete or missing structured data is unsurprising. The more useful finding was Pololu, because they clearly tried. Their product markup does include a <code>Product</code> type, and the real spec numbers — voltage, RPM, stall torque — are genuinely present in the data. But they're dumped into the free-text <code>description</code> field as a garbled fragment of what used to be an HTML table: <code>"12 V \n\t\t330 RPM, 80 mA \n\t\t1.3 kg⋅cm..."</code>. A human skimming the rendered page reads this fine. An agent parsing the structured data has to regex-guess its way through mangled whitespace to recover a single number — which is precisely the gap described in <a href="/blog/why-ai-agents-will-do-the-shopping.html">why AI agents will do the shopping</a>: the information exists, but only in a form built for a person.</p>
+
+<h2>What this says about the actual size of the problem</h2>
+<p>None of the five sites we checked — including ones that clearly invested some effort into structured markup — expose real engineering specs in a form an agent can reliably use without extra parsing work. That's a stronger, more concrete version of the claim we made in <a href="/blog/compliance-has-to-become-machine-readable.html">compliance has to become machine-readable</a>: the gap isn't hypothetical, and it isn't limited to small or under-resourced companies. It shows up even where a team has clearly already invested in basic SEO structured data.</p>
+
+<h2>What we'd actually recommend, concretely</h2>
+<p>The fix for Pololu's specific case is small and doesn't require rebuilding anything: keep the <code>Product</code> type, but move each spec out of the free-text <code>description</code> and into its own <code>additionalProperty</code> entry — <code>{"@type": "PropertyValue", "name": "voltage", "value": "12V"}</code> and so on. That's the exact mechanism schema.org already provides for this, described in more detail in our <a href="/guidelines/">AI-Ready Manufacturer Guidelines</a>. It's a markup change, not a redesign.</p>
+
+<p>For McMaster-Carr and Digi-Key, the constraint is different — it's reachability, not markup quality. We're not going to recommend fighting bot detection or scraping JS-rendered pages to get around it; the better path for distributors at that scale is an official API (both companies have real, documented ones), the same route <a href="/">Xibrary</a> is taking for electronics data through Nexar.</p>
+
+<p>We'll keep spot-checking sites like this as we go — real evidence is a lot more useful than assuming the gap exists.</p>
+
+</article>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
+</footer>
+
+</body>
+</html>
