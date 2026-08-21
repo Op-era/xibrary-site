@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Xibrary">
+  <rect width="512" height="512" fill="#ffffff"/>
+  <text x="228" y="350" text-anchor="middle"
+        font-family="Times New Roman, Times, Georgia, serif"
+        font-size="300" font-weight="400" fill="#000000">X</text>
+  <circle cx="350" cy="318" r="20" fill="#e10600"/>
+</svg>
