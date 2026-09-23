@@ -227,3 +227,63 @@ footer a:hover { color: var(--ice); }
 
 .wordmark-heading { margin: 0.35rem 0 0.4rem; line-height: 0; }
 .wordmark-img { display: block; height: 3.2rem; width: auto; max-width: 100%; }
+
+/* Mobile navigation */
+.nav-toggle {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  nav.sitenav {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .nav-toggle {
+    display: block;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    color: var(--fg);
+    font-size: 1.3rem;
+    line-height: 1;
+    padding: 0.45rem 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .nav-toggle:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    right: 0;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.5rem;
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+
+  nav.sitenav.open .nav-links {
+    display: block;
+  }
+
+  nav.sitenav .nav-links a {
+    display: block;
+    margin: 0;
+    padding: 0.75rem 0.9rem;
+    border-radius: 6px;
+  }
+
+  nav.sitenav .nav-links a:hover {
+    background: var(--bg);
+    text-decoration: none;
+  }
+}

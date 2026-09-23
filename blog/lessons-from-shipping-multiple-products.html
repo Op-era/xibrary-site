@@ -37,10 +37,13 @@
 <body>
 
 <nav class="sitenav">
+  <button class=\"nav-toggle\" aria-label=\"Menu\" aria-expanded=\"false\">&#9776;</button>
+  <div class=\"nav-links\">
   <a href="/">Home</a>
   <a href="/blog/">Blog</a>
   <a href="/guidelines/">Guidelines</a>
   <a href="https://havencommand.com">Haven Command</a>
+  </div>
 </nav>
 
 <article>
@@ -75,5 +78,16 @@
   <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to the <a href="/blog/">Xibrary blog</a> or <a href="/">Xibrary home</a>.</p>
 </footer>
 
+<script>
+(function () {
+  var btn = document.querySelector(".nav-toggle");
+  var nav = document.querySelector("nav.sitenav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+</script>
 </body>
 </html>
