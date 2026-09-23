@@ -1,14 +1,22 @@
 :root {
-  color-scheme: light;
-  --bg: #ffffff;
-  --fg: #000000;
-  --muted: #444444;
-  --border: #000000;
-  --red: #e10600;
-  --code-bg: #f3f3f3;
+  color-scheme: dark;
+  --bg: #05070d;
+  --bg-raised: #0a0f1c;
+  --fg: #e9f1fb;
+  --muted: #93a0b8;
+  --border: #1d2a45;
+  --blue: #38a8ff;
+  --blue-deep: #1e63e6;
+  --ice: #bfe3ff;
+  --code-bg: #0a1220;
 }
 
 * { box-sizing: border-box; }
+
+::selection {
+  background: var(--blue-deep);
+  color: #ffffff;
+}
 
 body {
   margin: 0 auto;
@@ -42,7 +50,7 @@ p, li {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Wordmark: black Times with red tittle on the i */
+/* Wordmark: light Times with blue tittle on the i */
 .wordmark {
   display: inline-flex;
   align-items: baseline;
@@ -67,7 +75,7 @@ p, li {
   width: 0.2em;
   height: 0.2em;
   border-radius: 50%;
-  background: var(--red);
+  background: var(--blue);
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -86,16 +94,30 @@ p, li {
   display: block;
 }
 
+/* Hero: full-width robotics image with a blue glow edge */
+.hero {
+  margin: 1.75rem 0 0.5rem;
+}
+
+.hero img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  box-shadow: 0 0 48px rgba(56, 168, 255, 0.18), 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
 code, pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   background: var(--code-bg);
-  border: 1px solid #ddd;
+  border: 1px solid var(--border);
   border-radius: 0;
 }
 
-code { padding: 0.15em 0.4em; font-size: 0.92em; }
-pre { padding: 1rem; overflow-x: auto; border-left: 3px solid var(--red); }
-pre code { background: none; border: none; padding: 0; }
+code { padding: 0.15em 0.4em; font-size: 0.92em; color: var(--ice); }
+pre { padding: 1rem; overflow-x: auto; border-left: 3px solid var(--blue); }
+pre code { background: none; border: none; padding: 0; color: var(--fg); }
 
 .badge {
   display: inline-block;
@@ -106,30 +128,30 @@ pre code { background: none; border: none; padding: 0; }
   text-transform: uppercase;
   padding: 0.25em 0.65em;
   margin-right: 0.4em;
-  border: 1px solid var(--fg);
-  background: var(--bg);
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
   color: var(--fg);
 }
 
 .badge-accent {
-  border-color: var(--red);
-  color: var(--red);
+  border-color: var(--blue);
+  color: var(--blue);
 }
 
 a {
-  color: var(--fg);
+  color: var(--blue);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.15em;
 }
 
 a:hover {
-  color: var(--red);
+  color: var(--ice);
 }
 
 nav.sitenav {
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid var(--fg);
+  border-bottom: 1px solid var(--border);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.95rem;
 }
@@ -142,12 +164,12 @@ nav.sitenav a {
 }
 
 nav.sitenav a:hover {
-  color: var(--red);
+  color: var(--blue);
   text-decoration: underline;
 }
 
 nav.sitenav a[aria-current="page"] {
-  color: var(--red);
+  color: var(--blue);
 }
 
 header {
@@ -166,7 +188,7 @@ header {
 .post-list li {
   margin-bottom: 1.75rem;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--border);
 }
 .post-list time {
   display: block;
@@ -178,12 +200,13 @@ header {
   font-size: 1.05rem;
   font-weight: 600;
   text-decoration: none;
+  color: var(--fg);
 }
-.post-list a:hover { color: var(--red); text-decoration: underline; }
+.post-list a:hover { color: var(--blue); text-decoration: underline; }
 .post-list p { margin: 0.35rem 0 0; color: var(--muted); }
 
 blockquote {
-  border-left: 3px solid var(--red);
+  border-left: 3px solid var(--blue);
   margin-left: 0;
   padding-left: 1rem;
   color: var(--muted);
@@ -192,14 +215,14 @@ blockquote {
 footer {
   margin-top: 4rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--fg);
+  border-top: 1px solid var(--border);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
-footer a { color: var(--fg); }
-footer a:hover { color: var(--red); }
+footer a { color: var(--blue); }
+footer a:hover { color: var(--ice); }
 
 
 .wordmark-heading { margin: 0.35rem 0 0.4rem; line-height: 0; }

@@ -4,7 +4,7 @@
   "description": "Parts sourcing index for AI agents",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "background_color": "#05070d",
   "theme_color": "#000000",
   "icons": [
     {
