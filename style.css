@@ -224,6 +224,183 @@ footer {
 footer a { color: var(--blue); }
 footer a:hover { color: var(--ice); }
 
+body.catalogue-page { max-width: 960px; }
+
+.catalogue-summary {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--muted);
+  margin-top: 1.25rem;
+}
+
+.catalogue-summary.is-complete { color: var(--ice); }
+
+.catalogue-alert {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--blue);
+  background: var(--bg-raised);
+  padding: 0.75rem 0.9rem;
+  margin: 1rem 0 0;
+}
+
+.catalogue-alert[data-kind="error"] { border-left-color: #c48a3a; }
+
+.catalogue-form label.field,
+.field-grid label.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.9rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.92rem;
+}
+
+.catalogue-form input,
+.catalogue-form select,
+.catalogue-form textarea,
+.field-grid input,
+.field-grid select,
+.field-grid textarea {
+  width: 100%;
+  background: var(--code-bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+  font: inherit;
+}
+
+.catalogue-form input:focus,
+.catalogue-form select:focus,
+.catalogue-form textarea:focus,
+.field-grid input:focus,
+.field-grid select:focus,
+.field-grid textarea:focus {
+  outline: 2px solid var(--blue);
+  border-color: var(--blue);
+}
+
+.field.missing input,
+.field.missing select,
+.field.missing textarea { border-color: #c48a3a; }
+
+.field-hint,
+.field-issue,
+.optional,
+.optional-line {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.field-issue { color: #e6c27a; }
+
+.optional { text-transform: none; letter-spacing: 0; font-weight: 400; }
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.catalogue-form button,
+.catalogue-actions button {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--blue-deep);
+  color: #fff;
+  border: 1px solid var(--blue-deep);
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  cursor: pointer;
+}
+
+.catalogue-form button:hover,
+.catalogue-actions button:hover { border-color: var(--blue); }
+
+.catalogue-form button.quiet,
+.catalogue-actions button.quiet {
+  background: transparent;
+  color: var(--muted);
+  border-color: var(--border);
+}
+
+.part-card {
+  border: 1px solid var(--border);
+  background: var(--bg-raised);
+  border-radius: 0.6rem;
+  padding: 1rem 1rem 1.15rem;
+  margin: 1rem 0;
+}
+
+.part-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.part-card h3 { margin: 0; font-size: 1.15rem; }
+
+.part-card h4 {
+  margin: 0 0 0.35rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.badge-missing {
+  border-color: #c48a3a;
+  color: #e6c27a;
+  flex-shrink: 0;
+}
+
+.gap-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.gap-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.gap-list li {
+  margin: 0.2rem 0;
+  font-size: 0.92rem;
+}
+
+.present-list li span {
+  color: var(--muted);
+  margin-right: 0.35rem;
+}
+
+.part-card summary {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  cursor: pointer;
+  color: var(--blue);
+  margin-top: 0.85rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.15rem 1rem;
+  margin-top: 0.75rem;
+}
+
+.field-grid .wide { grid-column: 1 / -1; }
+
+@media (max-width: 640px) {
+  .gap-columns,
+  .field-grid { grid-template-columns: 1fr; }
+}
+
 
 .wordmark-heading { margin: 0.35rem 0 0.4rem; line-height: 0; }
 .wordmark-img { display: block; height: 3.2rem; width: auto; max-width: 100%; }

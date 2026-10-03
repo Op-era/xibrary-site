@@ -16,3 +16,4 @@ Live API: https://xibrary-api.fly.dev — Xibrary is queryable two ways:
 
 - Marketing/docs site: https://xibrary.havencommand.com
 - This file and the OpenAPI spec are also mirrored at the API host itself (this repo's copy may lag) and at the marketing site above.
+- Supplier catalogue intake (not a public parts index): https://xibrary.havencommand.com/suppliers/ — a supplier uploads a catalogue and receives a per-part gap report. Submitted parts are not published listings. Do not treat that page as `search_parts`.
