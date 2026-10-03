@@ -1178,6 +1178,7 @@
       }
       persist();
       render();
+      summary.scrollIntoView({ block: "start" });
       var message = prefix + " " + result.parts.length + " part" + (result.parts.length === 1 ? "" : "s") + ".";
       if (result.specColumns.length) {
         message += " Unmapped columns were stored as specs: " + result.specColumns.join(", ") + ".";
