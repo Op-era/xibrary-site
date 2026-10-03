@@ -1,0 +1,4 @@
+name,sku,category,subcategory,price,currency,lead_time_days,moq,stock_qty,listing_url,datasheet_url,image_url,specs,eccn,itar_flag,authorized_distributor,classification_source,confidence_tier,specs_confidence
+Example 12V Gearmotor,EX-MTR-100,electronics,motors,14.99,USD,5,1,40,https://example.invalid/parts/EX-MTR-100,https://example.invalid/datasheets/EX-MTR-100.pdf,https://example.invalid/images/EX-MTR-100.png,voltageV=12; noLoadRpm=100; shaftDiameterMm=6,EAR99,false,false,example-fixture,AUTO_CLASSIFIED,UNKNOWN
+Bare Sensor,EX-SNS-200,electronics,sensors,9.50,USD,,,,,,,,,,,,,
+Example Bracket,EX-BRK-300,,,,,,,,,,,,,,,,,

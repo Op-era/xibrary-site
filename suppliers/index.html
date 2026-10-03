@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Submit a parts catalogue — Xibrary</title>
+<meta name="description" content="Suppliers can submit a parts catalogue to Xibrary and see, part by part, which listing fields are still missing. Listing is free while Xibrary is in early build. Submissions are not published as a public parts directory." />
+<link rel="canonical" href="https://xibrary.havencommand.com/suppliers/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Submit a parts catalogue — Xibrary" />
+<meta property="og:description" content="Upload a catalogue and get a per-part report of missing price, lead time, datasheet, compliance, and image data. Free while Xibrary is in early build." />
+<meta property="og:url" content="https://xibrary.havencommand.com/suppliers/" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="icon" href="/assets/xibrary-mark.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<meta name="theme-color" content="#05070d" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="Xibrary" />
+<link rel="stylesheet" href="/style.css?v=20261003" />
+</head>
+<body class="catalogue-page">
+
+<nav class="sitenav">
+  <button class="nav-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+  <div class="nav-links">
+  <a href="/">Home</a>
+  <a href="/blog/">Blog</a>
+  <a href="/guidelines/">Guidelines</a>
+  <a href="/suppliers/" aria-current="page">List parts</a>
+  <a href="https://havencommand.com">Haven Command</a>
+  </div>
+</nav>
+
+<header>
+  <div class="brand-row">
+    <img class="brand-mark" src="/assets/xibrary-mark.svg" width="40" height="40" alt="" />
+    <span class="badge">Suppliers</span>
+    <span class="badge badge-accent">Free while we build</span>
+  </div>
+  <h1>Submit your parts catalogue</h1>
+  <p class="tagline">Upload a CSV or spreadsheet, or add parts one at a time. Xibrary checks every part and shows what is still missing before a listing is complete.</p>
+</header>
+
+<section>
+  <h2>What “complete” means</h2>
+  <p>A part is complete for listing when it has a name, SKU, category, price and currency, lead time, minimum order quantity, a listing URL, a datasheet URL, at least one spec, an image URL, and a compliance record: an ECCN, an explicit ITAR yes or no, where that classification came from, and a confidence tier of <code>VERIFIED</code> or <code>AUTO_CLASSIFIED</code>. <code>UNKNOWN</code> stays a gap, because it means the classification has not been reviewed.</p>
+  <p>Subcategory, stock, authorized-distributor status, specs confidence, and how the specs were captured are shown when they are empty. They are optional in the current data model, so they do not block a complete report. Supplier trust is recorded as <code>UNVERIFIED</code> until Xibrary reviews the listing — this form cannot mark your own catalogue verified.</p>
+  <p>Listing is free while we build. This page is the intake. It does not publish a public parts directory. The catalogue and its gap report stay in this browser (and in a JSON file if you download one) until you clear them.</p>
+</section>
+
+<section id="catalogue-app">
+  <h2>Your catalogue</h2>
+  <form id="intake-form" class="catalogue-form">
+    <label class="field">
+      <span>Company name</span>
+      <input id="supplier-name" name="supplierName" type="text" autocomplete="organization" />
+    </label>
+    <p class="field-hint">Used as the supplier on each listing in the downloaded report. Kept in this browser only.</p>
+    <label class="field">
+      <span>Catalogue file</span>
+      <input id="catalogue-file" type="file" accept=".csv,.tsv,.txt,.xlsx,.ods,text/csv,text/tab-separated-values,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet" />
+    </label>
+    <p class="field-hint">CSV, TSV, XLSX, or ODS. The first row should be column names (<code>name</code>, <code>sku</code>, <code>price</code>, <code>lead_time_days</code>, <code>datasheet_url</code>, and so on). Rows are added to the parts already on this page. <a href="/suppliers/example-catalogue.csv" download>Download an example CSV</a>.</p>
+    <div class="button-row">
+      <button type="button" id="load-example">Load example catalogue</button>
+      <button type="button" id="add-part">Add a part manually</button>
+    </div>
+  </form>
+
+  <p id="catalogue-alert" class="catalogue-alert" role="status" hidden></p>
+  <p id="catalogue-summary" class="catalogue-summary">No parts yet. Upload a catalogue or add one part to see the gap report.</p>
+  <div id="catalogue-report"></div>
+
+  <div class="button-row catalogue-actions">
+    <button type="button" id="recheck-all">Re-check all parts</button>
+    <button type="button" id="download-report">Download gap report (JSON)</button>
+    <button type="button" id="clear-catalogue" class="quiet">Clear this browser's copy</button>
+  </div>
+</section>
+
+<noscript>
+  <p>This intake needs JavaScript to read a catalogue and score the gaps. The example file is still available at <a href="/suppliers/example-catalogue.csv">example-catalogue.csv</a>.</p>
+</noscript>
+
+<footer>
+  <p>A <a href="https://havencommand.com">Haven Command</a> project. Back to <a href="/">Xibrary home</a> or the <a href="/guidelines/">manufacturer guidelines</a>. Nothing submitted here is added to a public parts index.</p>
+</footer>
+
+<script src="/suppliers/catalogue.js"></script>
+<script>
+(function () {
+  var btn = document.querySelector(".nav-toggle");
+  var nav = document.querySelector("nav.sitenav");
+  if (!btn || !nav) return;
+  btn.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+})();
+</script>
+</body>
+</html>
